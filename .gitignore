@@ -4,6 +4,9 @@
 /log/*.log
 /tmp
 
+.DS_Store
+coverage
+
 *.rbc
 capybara-*.html
 .rspec
