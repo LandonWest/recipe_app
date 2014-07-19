@@ -18,14 +18,17 @@
       </ul>
 
     <ul class="right">
-      <li><a href="/users/sign_up">Sign Up</a></li>
-      <li class="active"><a href="/users/sign_in">Sign In</a></li>
-      <li class="has-dropdown">
-        <a href="#">Profile</a>
-        <ul class="dropdown">
-          <li><a href="/user/sign_out">Sign Out</a></li>
-        </ul>
-      </li>
+      <% if signed_in? %>
+        <li class="has-dropdown">
+          <a href="#"><%= current_user.username %></a>
+          <ul class="dropdown">
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><a href="/users/sign_up">Sign Up</a></li>
+        <li class="active"><a href="/users/sign_in">Sign In</a></li>
+      <% end %>
     </ul>
   </section>
 
