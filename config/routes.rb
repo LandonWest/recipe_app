@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :recipes
 
+  resources :user, only: :show
+
 end
