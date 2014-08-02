@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def to_param
+    [id, username.parameterize].join("-")
+  end
+
 end
