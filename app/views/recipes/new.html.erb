@@ -1,3 +1,50 @@
-<h1>New Recipe</h1>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>New Recipe</h1>
+  </div>
+</div>
 
-form goes here...
+<%= form_for(@recipe) do |r| %>
+
+    <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this tutorial from being saved:</h2>
+      <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= r.label :name %>
+      <%= r.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= r.label :description %>
+      <%= r.text_field :description %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= r.label :directions %>
+      <%= r.text_field :directions %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= r.label :picture %>
+      <%= r.file_field :picture %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= r.submit 'Submit' %>
+    </div>
+  </div>
+
+<% end %>
