@@ -14,5 +14,11 @@ class RecipesController < ApplicationController
       redirect_to user_path(current_user)
     else
       render :new
+    end
+  end
+
+  private
+  def recipe_params
+    params.require(:recipe).permit(:user_id, :name, :description, :picture, :directions)
   end
 end
