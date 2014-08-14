@@ -1,1 +1,7 @@
-<h1>recipes index</h1>
+<h1>Recipes Index</h1>
+
+  <ul>
+    <% @recipes.each do |r| %>
+    <li><a href="<%= recipe_path(r.id) %>"><%= r.name %></a></li>
+  </ul>
+<% end %>
