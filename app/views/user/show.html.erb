@@ -1,28 +1,13 @@
-<div class="row">
-  <div class="small-12 columns">
-    <h1><%= @user.username %>'s Profile</h1>
-  </div>
-</div>
+<h1><%= @user.username %>'s Profile</h1>
 
-<div class="row">
-  <div class="small-12 columns">
-    <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-  </div>
-</div>
+<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
 
-<div class="row">
-  <div class="small-12 columns">
-    <a href="/users/edit">Edit Profile</a>
-  </div>
-</div>
+<a href="/users/edit">Edit Profile</a>
 
-<div class="row">
-  <div class="small-12 columns">
-    <h2>My Recipe's:</h2>
-    <ul>
-      <% @recipes.each do |r| %>
-      <li><a href="<%= recipe_path(current_user.id) %>"><%= r.name %></a></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<h2>My Recipe's:</h2>
+
+<ul>
+  <% @recipes.each do |r| %>
+  <li><a href="<%= recipe_path(current_user.id) %>"><%= r.name %></a></li>
+  <% end %>
+</ul>

@@ -17,34 +17,19 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="small-12 columns">
-      <%= r.label :name %>
-      <%= r.text_field :name %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12 columns">
-      <%= r.label :description %>
-      <%= r.text_field :description %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12 columns">
-      <%= r.label :directions %>
-      <%= r.text_field :directions %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12 columns">
-      <%= r.label :picture %>
-      <%= r.file_field :picture %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12 columns">
-      <%= r.submit 'Submit' %>
-    </div>
-  </div>
+
+  <%= r.label :name %>
+  <%= r.text_field :name %>
+
+  <%= r.label :description %>
+  <%= r.text_field :description %>
+
+  <%= r.label :directions %>
+  <%= r.text_field :directions %>
+
+  <%= r.label :picture %>
+  <%= r.file_field :picture %>
+
+  <%= r.submit 'Submit' %>
 
 <% end %>
