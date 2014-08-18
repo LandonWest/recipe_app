@@ -12,12 +12,16 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <%= render 'layouts/navbar' %>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </div>
 
     <%= javascript_include_tag "application" %>
   </body>
