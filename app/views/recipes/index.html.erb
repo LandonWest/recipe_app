@@ -3,5 +3,5 @@
   <ul>
     <% @recipes.each do |r| %>
     <li><a href="<%= recipe_path(r.id) %>"><%= r.name %></a></li>
+    <% end %>
   </ul>
-<% end %>
