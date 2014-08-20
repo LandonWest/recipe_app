@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :recipes
 
+  mount_uploader :avatar, AvatarUploader
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
