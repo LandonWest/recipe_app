@@ -30,7 +30,7 @@ RSpec.describe RecipesController, :type => :controller do
         expect(response).to render_template('new')
       end
     end
-    context 'when user is not signe in' do
+    context 'when user is not signed in' do
       it 'redirects to sign in' do
         get :new
         expect(response).to redirect_to new_user_session_path
@@ -48,6 +48,8 @@ RSpec.describe RecipesController, :type => :controller do
         expect {
           create(:recipe, user: @user)
         }.to change(Recipe, :count).by(1)
+
+        #expect(response).to redirect_to user_path(@user.id)
       end
     end
     context 'when new recipe fails to save' do
@@ -56,6 +58,19 @@ RSpec.describe RecipesController, :type => :controller do
         expect(response).to render_template('new')
         expect(Recipe.count).to eq 0
       end
+    end
+  end
+
+  describe '#show' do
+    before do
+      @user = create(:user)
+      @recipe = create(:recipe, name: 'Soup', user: @user)
+    end
+    it 'displays the selected recipe' do
+      get :show, id: @recipe.id
+      expect(response).to be_success
+      expect(assigns(:recipe).name).to eq 'Soup'
+      expect(response).to render_template('show')
     end
   end
 
