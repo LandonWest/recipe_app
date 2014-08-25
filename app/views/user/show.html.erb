@@ -1,7 +1,7 @@
 <h1><%= @user.username %>'s Profile</h1>
 
 <%= image_tag(@user.avatar.url(:normal)) %>
-<ul>  
+<ul>
   <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
   <li>Email: <%= @user.email %></li>
 </ul>
@@ -12,6 +12,12 @@
 
 <ul>
   <% @recipes.each do |r| %>
-  <li><a href="<%= recipe_path(r.id) %>"><%= r.name %></a></li>
+  <li>
+    <a href="<%= recipe_path(r) %>"><%= r.name %></a>
+    <% if r.user_id == current_user.id %>
+      - <%= link_to('Edit', edit_recipe_path(r)) %> /
+      <%= link_to('Delete', recipe_path(r), method: :delete, data: {confirm: "Are you sure?"}) %>
+    <% end %>
+  </li>
   <% end %>
 </ul>
