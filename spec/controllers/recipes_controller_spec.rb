@@ -74,4 +74,29 @@ RSpec.describe RecipesController, :type => :controller do
     end
   end
 
+  describe '#edit' do
+    before do
+      @user = create(:user)
+      @recipe = create(:recipe, user: @user)
+    end
+    context 'when user who created recipe is signed in' do
+      before do
+        sign_in @user
+      end
+      it 'displays the selected recipe for editing' do
+        get :edit, id: @recipe.id
+        expect(response).to be_success
+        expect(assigns(:recipe).id).to eq @recipe.id
+        expect(response).to render_template('edit')
+      end
+    end
+    context 'when recipe does Not belong to current user', :focus do
+      it 'raises routing error' do
+        expect {
+          get :edit, id: @recipe.id
+        }.to raise_error(ActionController::RoutingError)
+      end
+    end
+  end
+
 end
