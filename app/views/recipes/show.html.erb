@@ -1,4 +1,4 @@
-"picture"<%= @recipe.picture %>
+<%= image_tag(@recipe.recipe_pic.normal) %>
 <h1><%= @recipe.name %></h1>
 <p><%= @recipe.description%></p>
 <p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
