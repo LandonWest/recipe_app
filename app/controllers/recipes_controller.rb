@@ -29,6 +29,15 @@ class RecipesController < ApplicationController
     @user = User.find(@recipe.user_id)
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update_attributes(recipe_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def recipe_params
