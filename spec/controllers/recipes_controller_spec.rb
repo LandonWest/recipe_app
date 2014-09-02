@@ -49,7 +49,7 @@ RSpec.describe RecipesController, :type => :controller do
           create(:recipe, user: @user)
         }.to change(Recipe, :count).by(1)
 
-        #expect(response).to redirect_to user_path(@user.id)
+        #expect(response).to redirect_to user_path(@user)
       end
     end
     context 'when new recipe fails to save' do
