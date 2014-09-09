@@ -45,18 +45,16 @@ RSpec.describe RecipesController, :type => :controller do
     end
     context 'when new recipe is saved' do
       it 'creates a new recipe and saves it to the db' do
-        expect {
-          create(:recipe, user: @user)
-        }.to change(Recipe, :count).by(1)
-
-        #expect(response).to redirect_to user_path(@user)
+        post :create, recipe: { name: 'soup', description: 'good', directions: 'bake' }
+        expect(Recipe.count).to eq 1
+        expect(response).to redirect_to user_path(@user)
       end
     end
     context 'when new recipe fails to save' do
       it 'renders the new template and does Not save to the db' do
-        post :create, recipe: { name: 'soup', description: 'good stuff', directions: nil }
-        expect(response).to render_template('new')
+        post :create, recipe: { name: 'soup', description: 'good', directions: nil }
         expect(Recipe.count).to eq 0
+        expect(response).to render_template('new')
       end
     end
   end
@@ -90,7 +88,7 @@ RSpec.describe RecipesController, :type => :controller do
         expect(response).to render_template('edit')
       end
     end
-    context 'when recipe does Not belong to current user', :focus do
+    context 'when recipe does Not belong to current user' do
       it 'raises routing error' do
         expect {
           get :edit, id: @recipe.id
