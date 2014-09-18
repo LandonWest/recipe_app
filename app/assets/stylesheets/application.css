@@ -15,3 +15,20 @@
  *= require foundation_and_overrides
 
  */
+.flash-message {
+  position: absolute;
+  margin-left: 45%;
+}
+
+.notice {
+  border-radius: 25px;
+  background-color: #91DE7A;
+  color: #fff;
+  padding: 0 10px;
+}
+
+.alert {
+  background-color: #F14747;
+  padding: 0 10px;
+  color: #fff;
+}
