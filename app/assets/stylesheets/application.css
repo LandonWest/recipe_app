@@ -15,6 +15,30 @@
  *= require foundation_and_overrides
 
  */
+.banner {
+  padding-top: 0.2em;
+  z-index: 1;
+  height: 350px;
+  background-image: url('recipebg.jpg');
+  background-repeat: repeat-x;
+}
+.banner-text h1 {
+  /*padding-top: 0.15em;*/
+  text-align: center;
+  color: white;
+  font-style: bold;
+  font-size: 10em;
+
+   -webkit-text-stroke: 1px black;
+   color: white;
+   text-shadow:
+      4px 5px 0 #716F74,
+     -2px -3px 0 #716F74,
+      2px -3px 0 #716F74,
+     -2px 3px 0 #716F74,
+      2px 3px 0 #716F74;
+}
+
 .flash-message {
   position: absolute;
   margin-left: 45%;
@@ -31,4 +55,29 @@
   background-color: #F14747;
   padding: 0 10px;
   color: #fff;
+}
+
+.card {
+  background-image: url('blankrecipecard.jpg');
+  width: 100%;
+}
+.card-lrg {
+  margin-top: 50px;
+  width: 100%;
+}
+.bg {
+  position: relative;
+}
+.fg {
+  position: absolute;
+  margin-top: 70px;
+  margin-left: 30px;
+}
+.card-pic {
+  float: left:
+  display: inline-block;
+}
+.card-header {
+  width: 400px;
+  display: inline-block;
 }

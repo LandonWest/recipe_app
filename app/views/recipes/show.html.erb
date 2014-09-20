@@ -1,5 +1,100 @@
-<%= image_tag(@recipe.recipe_pic.normal) %>
-<h1><%= @recipe.name %></h1>
-<p><%= @recipe.description%></p>
-<p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
-<p>Directions: <br><%= @recipe.directions %></p>
+    <!-- <div class="row">
+      <div class="small-4 column">
+        <%= image_tag(@recipe.recipe_pic.normal) %>
+      </div>
+      <div >
+
+      </div class="small-8 column small-centered">
+        <h1><%= @recipe.name %></h1>
+        <p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
+        <p><%= @recipe.description%></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-10 small-centered column">
+
+        <h3>Directions: </h3>
+        <p>
+          <%= @recipe.directions %>
+        </p>
+      </div>
+    </div> -->
+
+
+<!-- <div class="row">
+  <div class="small-10 small-centered column">
+
+    <div class="card">
+      <%= image_tag(@recipe.recipe_pic.normal) %>
+      <h1><%= @recipe.name %></h1>
+      <p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
+      <p><%= @recipe.description%></p>
+    </div>
+
+  </div>
+</div> -->
+
+<!-- <div class="row">
+  <div class="small-10 small-centered columns">
+
+    <div class="bg">
+      <div class="fg">
+
+        <div class="card-pic">
+          <%= image_tag(@recipe.recipe_pic.normal) %>
+        </div>
+
+        <div class="card-header">
+          <h1><%= @recipe.name %></h1>
+          <p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
+          <p><%= @recipe.description%></p>
+        </div>
+
+        <div class="card-body">
+          <h3>Ingredients: </h3>
+          <h3>Directions: </h3>
+          <p><%= @recipe.directions %></p>
+        </div>
+
+      </div>
+    </div>
+    <%= image_tag "blankrecipecard.jpg", alt: "recipe card", class: "card-lrg"%>
+
+  </div>
+</div> -->
+
+<div class="bg">
+  <div class="fg body">
+
+    <section class="card-head">
+      <div class="recipe-pic">
+        <%=  image_tag(@recipe.recipe_pic.normal) %>
+      </div>
+      <div class="card-head-text">
+        <h1><%= @recipe.name %></h1>
+        <p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
+        <p><%= @recipe.description%></p>
+      </div>
+    </section>
+
+    <section class="card-content">
+      <div class="ingredients">
+        <h3>Ingredients: </h3>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+      </div>
+      <div class="directions">
+        <h3>Directions:</h3>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+      </div>
+    </section>
+    <%= image_tag "blankrecipecard.jpg", alt: "recipe card", class: "card-lrg"%>
+  </div>
+</div>

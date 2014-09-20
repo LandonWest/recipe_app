@@ -12,20 +12,15 @@
   </head>
 
   <body>
-    <div>
-      <%= render 'layouts/navbar' %>
-    </div>
+
+    <%= render 'layouts/navbar' %>
 
     <div class="flash-message">
       <h4 class="notice"><%= notice %></h4>
       <h4 class="alert"><%= alert %></h4>
     </div>
 
-    <div class="row">
-      <div class="small-12 columns">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
 
     <%= javascript_include_tag "application" %>
   </body>
