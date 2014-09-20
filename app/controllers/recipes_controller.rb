@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     if @recipe.save
+      flash[:notice] = 'Recipe Created Successfully!'
       redirect_to user_path(current_user)
     else
       render :new
@@ -32,6 +33,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update_attributes(recipe_params)
+      flash[:notice] = 'Recipe Updated Successfuly!'
       redirect_to user_path(current_user)
     else
       render :edit
