@@ -57,27 +57,60 @@
   color: #fff;
 }
 
-.card {
-  background-image: url('blankrecipecard.jpg');
-  width: 100%;
-}
-.card-lrg {
-  margin-top: 50px;
-  width: 100%;
-}
-.bg {
+
+
+________________________________________________________________________________
+Recipe Card styles
+________________________________________________________________________________
+.card-bg {
   position: relative;
+  z-index: 1;
+  margin-top: 50px;
 }
-.fg {
+.card-face {
   position: absolute;
-  margin-top: 70px;
-  margin-left: 30px;
+  margin: 30px;
 }
-.card-pic {
-  float: left:
-  display: inline-block;
+h1, h3, p {
+  font-family: "Brush Script MT", cursive;
+  /*font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;*/
 }
-.card-header {
-  width: 400px;
+.recipe-pic {
+  max-width: 200px;
   display: inline-block;
+  position: relative;
+  z-index: 2;
+  top: -45px;
+
+     transform: rotate(-5deg);
+   -moz-transform: rotate(-5deg);
+   -webkit-transform: rotate(-5deg);
+}
+.card-head {
+  margin-bottom: 0px;
+  max-height: 200px;
+}
+.card-head-text {
+  max-width: 700px;
+  display: inline-block;
+  margin-left: 50px;
+}
+#paperclip {
+  position: absolute;
+  z-index: 3;
+  top: -45px;
+  left: -20px;
+}
+.card-content {
+  margin-left: 20px;
+  max-height: 300px;
+}
+.ingredients {
+  display: inline-block;
+  max-width: 400px;
+  margin-right: 30px;
+}
+.directions {
+  display: inline-block;
+  max-width: 400px;
 }

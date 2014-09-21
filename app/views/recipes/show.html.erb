@@ -63,38 +63,44 @@
 
   </div>
 </div> -->
+<div class="row">
+  <div class="small-10 small-centered columns">
 
-<div class="bg">
-  <div class="fg body">
+    <div class="card-bg">
+      <div class="card-face">
+        <section class="card-head">
+          <%= image_tag "copperppclip.png", alt: "paperclip", id: "paperclip"%>
+          <div class="recipe-pic">
+            <%=  image_tag(@recipe.recipe_pic.normal) %>
+          </div>
+          <div class="card-head-text">
+            <h1><%= @recipe.name %></h1>
+            <p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
+            <p><%= @recipe.description%></p>
+          </div>
+        </section>
 
-    <section class="card-head">
-      <div class="recipe-pic">
-        <%=  image_tag(@recipe.recipe_pic.normal) %>
-      </div>
-      <div class="card-head-text">
-        <h1><%= @recipe.name %></h1>
-        <p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
-        <p><%= @recipe.description%></p>
-      </div>
-    </section>
+        <section class="card-content">
+          <div class="ingredients">
+            <h3>Ingredients: </h3>
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+          </div>
+          <div class="directions">
+            <h3>Directions:</h3>
+              <ul>
+                <li></li>
+                <li></li>
+              </ul>
+          </div>
+        </section>
 
-    <section class="card-content">
-      <div class="ingredients">
-        <h3>Ingredients: </h3>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
       </div>
-      <div class="directions">
-        <h3>Directions:</h3>
-          <ul>
-            <li></li>
-            <li></li>
-          </ul>
-      </div>
-    </section>
-    <%= image_tag "blankrecipecard.jpg", alt: "recipe card", class: "card-lrg"%>
+      <%= image_tag "blankrecipecard.jpg", alt: "recipe card", class: "card-lrg"%>
+    </div>
+
   </div>
 </div>
