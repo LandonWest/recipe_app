@@ -67,6 +67,9 @@ ________________________________________________________________________________
   z-index: 1;
   margin-top: 50px;
 }
+#blank-card {
+  box-shadow: 10px 10px 5px #888888;
+}
 .card-face {
   position: absolute;
   margin: 30px;
@@ -81,6 +84,7 @@ h1, h3, p {
   position: relative;
   z-index: 2;
   top: -45px;
+  box-shadow: 2px 2px 1px #888888;
 
      transform: rotate(-5deg);
    -moz-transform: rotate(-5deg);
