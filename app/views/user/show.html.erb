@@ -9,14 +9,20 @@
       <li>Email: <%= @user.email %></li>
     </ul>
 
-    <a href="/users/edit" class="button small radius">Edit Profile</a><br>
+    <% if @user == current_user %>
+      <a href="/users/edit" class="button small radius">Edit Profile</a><br>
+    <% end %>
 
   </div>
 
   <div class="small-0 medium-6 columns">
 
-    <h2>My Recipe's:</h2>
-    <a href="/recipes/new" class="button small success radius">New Recipe</a>
+    <% if @user == current_user %>
+      <h2>My Recipe's:</h2>
+      <a href="/recipes/new" class="button small success radius">New Recipe</a>
+    <% else %>
+      <h2><%= @user.username %>'s Recipes</h2>
+    <% end %>
 
     <ul class="no-bullet">
       <% @recipes.each do |r| %>
