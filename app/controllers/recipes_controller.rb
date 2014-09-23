@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit]
+  before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
     @recipes = Recipe.all
@@ -21,17 +22,14 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
     @user = User.find(@recipe.user_id)
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
     @user = User.find(@recipe.user_id)
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     if @recipe.update_attributes(recipe_params)
       flash[:notice] = 'Recipe Updated Successfuly!'
       redirect_to user_path(current_user)
@@ -40,7 +38,18 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe.destroy
+    flash[:notice] = 'Recipe Deleted Successfully!'
+    redirect_to user_path(current_user)
+  end
+
+
   private
+
+  def find_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:user_id, :name, :description, :picture, :directions, :recipe_pic)
