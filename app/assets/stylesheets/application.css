@@ -75,7 +75,7 @@ ________________________________________________________________________________
   margin: 30px;
 }
 h1, h3, p {
-  font-family: "Brush Script MT", cursive;
+  /*font-family: "Brush Script MT", cursive;*/
   /*font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;*/
 }
 .recipe-pic {
