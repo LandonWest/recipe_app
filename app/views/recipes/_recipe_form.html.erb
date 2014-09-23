@@ -12,7 +12,9 @@
   <% end %>
 
   <%= r.label :name %>
+  <span data-tooltip aria-haspopup="true" class="has-tip tip-right" title="Name of Recipe">
   <%= r.text_field :name %>
+  </span>
 
   <%= r.label :description %>
   <%= r.text_field :description %>
