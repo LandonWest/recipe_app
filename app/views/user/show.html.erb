@@ -24,22 +24,23 @@
       <h2><%= @user.username %>'s Recipes</h2>
     <% end %>
 
-    <ul class="no-bullet">
-      <% @recipes.each do |r| %>
-      <li>
-        <div>
+    <table>
+    <% @recipes.each do |r| %>
+      <tr>
+        <td>
           <a href="<%= recipe_path(r) %>"><%= r.name %></a>
-        </div>
+        </td>
         <% if r.user_id == current_user.id %>
-          <div>
-            <%= link_to('Edit', edit_recipe_path(r), class: "button tiny radius") %>
-            <%= link_to('Delete', recipe_path(r), class: "button tiny alert radius", method: :delete, data: {confirm: "Are you sure?"}) %>
-          </div>
+        <td>
+          <%= link_to('Edit', edit_recipe_path(r), class: "button tiny radius") %>
+        </td>
+        <td>
+          <%= link_to('Delete', recipe_path(r), class: "button tiny alert radius", method: :delete, data: {confirm: "Are you sure?"}) %>
+        </td>
         <% end %>
-
-      </li>
-      <% end %>
-    </ul>
+      </tr>
+    <% end %>
+    </table>
 
   </div>
 </div>
