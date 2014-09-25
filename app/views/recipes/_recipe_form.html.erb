@@ -1,4 +1,4 @@
-<%= form_for(@recipe) do |r| %>
+<%= nested_form_for(@recipe) do |f| %>
 
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
@@ -11,21 +11,45 @@
     </div>
   <% end %>
 
-  <%= r.label :name %>
+  <%= f.label(:name) %>
   <span data-tooltip aria-haspopup="true" class="has-tip tip-right" title="Name of Recipe">
-  <%= r.text_field :name %>
+  <%= f.text_field(:name) %>
   </span>
 
-  <%= r.label :description %>
-  <%= r.text_field :description %>
+  <%= f.label(:description) %>
+  <%= f.text_field(:description, placeholder: 'Mom\'s world-famous cookies!') %>
 
-  <%= r.label :picture %>
-  <%= r.file_field :recipe_pic %>
+  <%= f.label(:picture) %>
+  <%= f.file_field(:recipe_pic) %>
 
-  <%= r.label :directions %>
-  <%= r.text_field :directions %>
+  <%= f.label(:directions) %>
+  <%= f.text_area(:directions, placeholder: 'Bake at 375 deg. for 15 min.') %>
 
-  <%= r.submit 'Submit' %>
+  <div class="row" style= "background: #D0D0D0">
+
+    <%= f.fields_for(:ingredients) do |ingredient_form| %>
+    <div class="small-6 columns">
+      <%= ingredient_form.label(:ingredient) %>
+      <%= ingredient_form.text_field(:name, placeholder: 'sugar') %>
+    </div>
+    <div class="small-2 columns">
+      <%= ingredient_form.label(:quantity) %>
+      <%= ingredient_form.text_field(:quantity, placeholder: '1 1/2') %>
+    </div>
+    <div class="small-4 columns">
+      <%= ingredient_form.label(:unit_of_measurement) %>
+      <%= ingredient_form.text_field(:unit_of_measurement, placeholder: 'Cups') %>
+    </div>
+    <%= ingredient_form.link_to_remove("X") %>
+    <% end %>
+
+    <br><p><%= f.link_to_add('Add Ingredient', :ingredients) %></p>
+
+  </div>
+
+
+
+  <%= f.submit 'Submit' %>
 
 <% end %>
 
