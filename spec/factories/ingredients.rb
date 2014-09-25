@@ -2,8 +2,5 @@
 
 FactoryGirl.define do
   factory :ingredient do
-    name "MyString"
-    amount "MyString"
-    units "MyString"
   end
 end
