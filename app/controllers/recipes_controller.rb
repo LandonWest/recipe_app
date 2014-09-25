@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
 
   def show
     @user = User.find(@recipe.user_id)
+    @ingredient = Ingredient.all
   end
 
   def edit
@@ -52,6 +53,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:user_id, :name, :description, :picture, :directions, :recipe_pic)
+    params.require(:recipe).permit(:user_id, :name, :description, :picture, :directions, :recipe_pic, ingredients_attributes: [:name, :quantity, :unit_of_measurement, :id, :_destroy] )
   end
 end
