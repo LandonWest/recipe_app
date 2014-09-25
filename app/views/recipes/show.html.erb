@@ -3,11 +3,13 @@
 
     <div class="card-bg">
       <div class="card-face">
+
         <section class="card-head">
           <%= image_tag "copperppclip.png", alt: "paperclip", id: "paperclip"%>
           <div class="recipe-pic">
             <%=  image_tag(@recipe.recipe_pic.normal) %>
           </div>
+
           <div class="card-head-text">
             <h1><%= @recipe.name %></h1>
             <p>Submitted by: <%= link_to @user.username, user_path(@user) %></p>
@@ -18,12 +20,15 @@
         <section class="card-content">
           <div class="ingredients">
             <h3>Ingredients: </h3>
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
+            <table>
+              <tr>
+                <td><%= @ingredient.name %></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
           </div>
+
           <div class="directions">
             <h3>Directions:</h3>
               <ul>
