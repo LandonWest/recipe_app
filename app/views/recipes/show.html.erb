@@ -20,13 +20,14 @@
         <section class="card-content">
           <div class="ingredients">
             <h3>Ingredients: </h3>
-            <table>
-              <tr>
-                <td><%= @ingredient.name %></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
+            <ul>
+              <% @ingredients.each do |ingredient|%>
+              <li><%= ingredient.quantity %>
+                  <%= ingredient.unit_of_measurement %>
+                  <%= ingredient.name %>
+              </li>
+              <% end %>
+            </ul>
           </div>
 
           <div class="directions">
