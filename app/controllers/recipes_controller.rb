@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
 
   def show
     @user = User.find(@recipe.user_id)
-    @ingredient = Ingredient.all
+    @ingredients = @recipe.ingredients
   end
 
   def edit
@@ -49,7 +49,7 @@ class RecipesController < ApplicationController
   private
 
   def find_recipe
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:ingredients).find(params[:id])
   end
 
   def recipe_params
